@@ -5,12 +5,21 @@ import BlogPost from '../../layouts/BlogPost.astro';
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
+		params: { slug: post.slug ?? post.id.replace(/\.(md|mdx)$/, '') },
 	}));
 }
 
-const post = Astro.props;
+const slugParam = Astro.params.slug;
+const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
+const posts = await getCollection('blog');
+const post = posts.find(
+	(entry) => (entry.slug ?? entry.id.replace(/\.(md|mdx)$/, '')) === (slug ?? '')
+);
+
+if (!post) {
+	throw new Error(`Blog post not found for slug: ${slug ?? 'undefined'}`);
+}
+
 const { Content } = await post.render();
 ---
 

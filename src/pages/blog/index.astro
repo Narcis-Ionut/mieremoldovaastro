@@ -282,22 +282,25 @@ const posts = (await getCollection('blog')).sort(
 				<h2>Articole recente</h2>
 				<div class="grid">
 					{
-						posts.map((post) => (
-							<article class="card">
-								<div class="meta">
-									{post.data.pubDate.toLocaleDateString('ro-RO', {
-										year: 'numeric',
-										month: 'long',
-										day: 'numeric',
-									})}
-								</div>
-								<h3>
-									<a href={`/blog/${post.slug}`}>{post.data.title}</a>
-								</h3>
-								<p>{post.data.description}</p>
-								<a href={`/blog/${post.slug}`}>Citeste articolul</a>
-							</article>
-						))
+						posts.map((post) => {
+							const slug = post.slug ?? post.id.replace(/\.(md|mdx)$/, '');
+							return (
+								<article class="card">
+									<div class="meta">
+										{post.data.pubDate.toLocaleDateString('ro-RO', {
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric',
+										})}
+									</div>
+									<h3>
+										<a href={`/blog/${slug}`}>{post.data.title}</a>
+									</h3>
+									<p>{post.data.description}</p>
+									<a href={`/blog/${slug}`}>Citeste articolul</a>
+								</article>
+							);
+						})
 					}
 				</div>
 			</section>
