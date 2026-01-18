@@ -1,50 +1,1816 @@
----
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
----
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-6TTBPHRLXR"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+      gtag("config", "G-6TTBPHRLXR");
+    </script>
+    <meta charset="utf-8" />
+    <title>Miere naturală din Susleni (Orhei) – ridicare din gospodărie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Miere de albine crudă, nepasteurizată din Susleni (Orhei). Ridicare direct din gospodărie. Miere de salcâm, tei, polifloră, floarea-soarelui și rapiță."
+    />
+    <link rel="canonical" href="https://mieremoldova.md/" />
+    <link rel="alternate" href="https://mieremoldova.md/" hreflang="ro" />
+    <link
+      rel="alternate"
+      href="https://mieremoldova.md/?lang=ru"
+      hreflang="ru"
+    />
+
+    <!-- Favicon (simple PNGs) + address bar color -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16.png"
+    />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <meta name="theme-color" content="#e67e00" />
+
+    <meta property="og:title" content="Miere naturală din Susleni (Orhei)" />
+    <meta
+      property="og:description"
+      content="Ridicare din gospodărie în Susleni, Orhei. Miere de albine: salcâm, tei, polifloră, rapiță. Miere Chișinău / Orhei – preț pe borcan."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mieremoldova.md/" />
+    <meta
+      property="og:image"
+      content="https://mieremoldova.md/assets/og-preview.webp"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ro_RO" />
+    <meta property="og:site_name" content="Miere Moldova" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Miere naturală din Susleni (Orhei)" />
+    <meta
+      name="twitter:description"
+      content="Ridicare din gospodărie în Susleni, Orhei. Miere de albine: salcâm, tei, polifloră, rapiță."
+    />
+    <meta
+      name="twitter:image"
+      content="https://mieremoldova.md/assets/og-preview.webp"
+    />
+
+    <style>
+      :root {
+        --max: 980px;
+        --pad: 20px;
+        --primary: #e67e00;
+        --primary-light: #fff2d9;
+        --primary-dark: #b45309;
+        --secondary: #1e3a8a;
+        --accent: #c0392b;
+        --text: #1f2937;
+        --text-muted: #6b7280;
+        --bg-light: #faf7f2;
+        --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e6e0d4' fill-opacity='0.3' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0v5L5 20H0zm40 0L20 20v-5l15-15h5z'/%3E%3C/g%3E%3C/svg%3E");
+        --border: #e5d6c0;
+        --border-pattern: repeating-linear-gradient(
+          45deg,
+          var(--primary-light),
+          var(--primary-light) 10px,
+          transparent 10px,
+          transparent 20px
+        );
+        --radius: 12px;
+        --shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        --transition: all 0.25s ease;
+        --font-heading: "Georgia", serif;
+
+        /* Dark theme variables */
+        --dark-bg: #212529;
+        --dark-bg-light: #343a40;
+        --dark-text: #e9ecef;
+        --dark-text-muted: #adb5bd;
+        --dark-border: #495057;
+        --dark-primary: #ff9f2b;
+        --dark-primary-light: #46382d;
+        --dark-primary-dark: #ffb54c;
+        --dark-bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23333333' fill-opacity='0.3' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0v5L5 20H0zm40 0L20 20v-5l15-15h5z'/%3E%3C/g%3E%3C/svg%3E");
+      }
+      html,
+      body {
+        margin: 0;
+        font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial,
+          sans-serif;
+        color: var(--text);
+        background: var(--bg-light) var(--bg-pattern);
+        line-height: 1.7;
+        font-size: 16px;
+      }
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: var(--pad);
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: var(--shadow);
+      }
+      header {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        border-bottom: 3px solid var(--primary);
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
+      .brand {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--primary);
+        font-family: var(--font-heading);
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        letter-spacing: 0.5px;
+      }
+      .brand a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .brand a:hover {
+        text-decoration: none;
+      }
+      .nav {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 auto;
+        min-width: 200px;
+      }
+      .nav a {
+        padding: 6px 10px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        color: var(--text);
+        font-weight: 600;
+      }
+      .nav a:hover {
+        border-color: var(--primary);
+        background: var(--primary-light);
+        text-decoration: none;
+      }
+      body.dark-theme .nav a {
+        color: var(--dark-text);
+      }
+      body.dark-theme .nav a:hover {
+        border-color: var(--dark-primary);
+        background: var(--dark-primary-light);
+      }
+      @media (max-width: 720px) {
+        .nav {
+          justify-content: flex-start;
+          width: 100%;
+        }
+      }
+      .lang {
+        display: flex;
+        gap: 8px;
+      }
+      .lang button {
+        border: 1px solid var(--border);
+        background: var(--bg-light);
+        padding: 6px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+      .lang button:hover {
+        background: #fff;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 30px;
+        align-items: center;
+        margin: 40px 0;
+        position: relative;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: var(--border-pattern);
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+      .hero img {
+        width: 100%;
+        border-radius: var(--radius);
+        object-fit: cover;
+        box-shadow: var(--shadow);
+        border: 4px solid #fff;
+        transform: rotate(1deg);
+        transition: var(--transition);
+      }
+      .hero img:hover {
+        transform: rotate(0) scale(1.02);
+      }
+
+      /* Slider arrows & counter */
+      .hero-media {
+        position: relative;
+        isolation: isolate;
+      }
+      .hero-media .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: var(--shadow);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      .hero-media .arrow:hover {
+        background: #fff;
+        transform: translateY(-50%) scale(1.05);
+      }
+      .hero-media .arrow:focus-visible {
+        outline: 3px solid var(--primary);
+        outline-offset: 2px;
+      }
+      .hero-media .arrow.left {
+        left: 10px;
+      }
+      .hero-media .arrow.right {
+        right: 10px;
+      }
+      .hero-media .arrow svg {
+        width: 22px;
+        height: 22px;
+      }
+      .hero-count {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: var(--shadow);
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 24px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 24px;
+        border-radius: var(--radius);
+        border: none;
+        text-decoration: none;
+        color: #fff;
+        background: var(--primary);
+        font-weight: 600;
+        transition: var(--transition);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: var(--transition);
+        z-index: -1;
+      }
+      .btn:hover:before {
+        left: 100%;
+      }
+      .btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .btn.light {
+        background: #fff;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+      .btn.light:hover {
+        background: var(--primary-light);
+        border-color: var(--primary-dark);
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-heading);
+        line-height: 1.2;
+        color: var(--primary-dark);
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin: 0 0 20px;
+        font-weight: 800;
+      }
+      h2 {
+        font-size: 1.8rem;
+        margin: 40px 0 20px;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      h2:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--primary);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin: 30px 0;
+      }
+      @media (max-width: 800px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: var(--shadow);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      th,
+      td {
+        padding: 15px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+      }
+      th {
+        font-weight: 600;
+        background: var(--primary);
+        color: #fff;
+      }
+      tr:nth-child(even) {
+        background-color: var(--bg-light);
+      }
+      tr:hover {
+        background-color: var(--primary-light);
+      }
+      .card {
+        border: none;
+        border-radius: var(--radius);
+        padding: 30px;
+        background: #fff;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+      .card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--primary);
+      }
+      .card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-5px);
+      }
+      .muted {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+      footer {
+        margin: 60px 0 20px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e6e0d4' fill-opacity='0.2' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        padding: 30px 0;
+      }
+      .badge {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        background: #fff;
+        font-size: 0.85rem;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        color: var(--primary-dark);
+        font-weight: 500;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+      .badge:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      details {
+        margin: 16px 0;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0 15px;
+        background: var(--bg-light);
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        padding: 15px 0;
+        color: var(--primary-dark);
+        position: relative;
+      }
+      summary:hover {
+        color: var(--primary);
+      }
+      details[open] summary {
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 15px;
+      }
+      ol,
+      ul {
+        padding-left: 25px;
+      }
+      li {
+        margin: 10px 0;
+      }
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+      a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+      }
+      #priceTable {
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+      #priceTable th:first-child {
+        border-radius: var(--radius) 0 0 0;
+      }
+      #priceTable th:last-child {
+        border-radius: 0 var(--radius) 0 0;
+      }
+      #priceTable tr:last-child td:first-child {
+        border-radius: 0 0 0 var(--radius);
+      }
+      #priceTable tr:last-child td:last-child {
+        border-radius: 0 0 var(--radius) 0;
+      }
+      .map-embed {
+        margin-top: 16px;
+        aspect-ratio: 16/9;
+        border: 0;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .video-container {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: #000;
+      }
+      .bee-video {
+        width: 100%;
+        display: block;
+        border-radius: var(--radius);
+        max-height: 500px;
+        object-fit: cover;
+      }
+      .video-caption {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-top: 10px;
+        font-style: italic;
+      }
+      .video-caption[data-ro],
+      .video-caption[data-ru] {
+        transition: var(--transition);
+      }
+
+      /* Theme Toggle Button */
+      .theme-toggle {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: var(--bg-light);
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+      }
+
+      .theme-toggle:hover {
+        background: #fff;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      .theme-toggle svg {
+        width: 18px;
+        height: 18px;
+        color: var(--primary-dark);
+        transition: var(--transition);
+      }
+
+      .theme-toggle .sun-icon {
+        display: none;
+      }
+
+      .theme-toggle .moon-icon {
+        display: block;
+      }
+
+      /* Dark Theme Styles */
+      body.dark-theme {
+        color: var(--dark-text);
+        background: var(--dark-bg) var(--dark-bg-pattern);
+      }
+
+      body.dark-theme .wrap {
+        background: rgba(33, 37, 41, 0.95);
+      }
+
+      body.dark-theme h1,
+      body.dark-theme h2,
+      body.dark-theme h3 {
+        color: var(--dark-primary-dark);
+      }
+
+      body.dark-theme .card {
+        background: var(--dark-bg-light);
+      }
+
+      body.dark-theme .card:before {
+        background: var(--dark-primary);
+      }
+
+      body.dark-theme .badge {
+        background: var(--dark-bg);
+        color: var(--dark-primary);
+        border-color: var(--dark-border);
+      }
+
+      body.dark-theme .muted {
+        color: var(--dark-text-muted);
+      }
+
+      body.dark-theme a {
+        color: var(--dark-primary);
+      }
+
+      body.dark-theme a:hover {
+        color: var(--dark-primary-dark);
+      }
+
+      body.dark-theme tr:nth-child(even) {
+        background-color: var(--dark-bg);
+      }
+
+      body.dark-theme tr:hover {
+        background-color: var(--dark-primary-light);
+      }
+
+      body.dark-theme details {
+        background: var(--dark-bg);
+      }
+
+      body.dark-theme summary {
+        color: var(--dark-primary);
+      }
+
+      body.dark-theme .btn.light {
+        background: var(--dark-bg);
+        color: var(--dark-primary);
+        border-color: var(--dark-primary);
+      }
+
+      body.dark-theme .btn.light:hover {
+        background: var(--dark-primary-light);
+        border-color: var(--dark-primary-dark);
+      }
+
+      body.dark-theme .hero {
+        background-color: rgba(33, 37, 41, 0.7);
+      }
+
+      body.dark-theme th {
+        background: var(--dark-primary);
+      }
+
+      body.dark-theme td {
+        border-color: var(--dark-border);
+      }
+
+      body.dark-theme .lang button {
+        background: var(--dark-bg);
+        border-color: var(--dark-border);
+        color: var(--dark-text);
+      }
+
+      body.dark-theme .lang button:hover {
+        background: var(--dark-bg-light);
+        border-color: var(--dark-primary);
+      }
+
+      body.dark-theme .theme-toggle {
+        background: var(--dark-bg);
+        border-color: var(--dark-border);
+      }
+
+      body.dark-theme .theme-toggle:hover {
+        background: var(--dark-bg-light);
+        border-color: var(--dark-primary);
+      }
+
+      body.dark-theme .theme-toggle svg {
+        color: var(--dark-primary);
+      }
+
+      body.dark-theme .theme-toggle .sun-icon {
+        display: block;
+      }
+
+      body.dark-theme .theme-toggle .moon-icon {
+        display: none;
+      }
+
+      body.dark-theme footer {
+        border-top-color: var(--dark-border);
+      }
+
+      /* Header layout for theme toggle */
+      .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
+
+    <!-- Structured data: LocalBusiness + Products (with offers) -->
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://mieremoldova.md/#stupina",
+            "name": "Stupina Susleni - Alexandru",
+            "image": [
+              "https://mieremoldova.md/assets/mieregeneral.webp",
+              "https://mieremoldova.md/assets/mierecristal.webp"
+            ],
+            "url": "https://mieremoldova.md/",
+            "telephone": "+37378415772",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Susleni",
+              "addressRegion": "Orhei",
+              "addressCountry": "MD"
+            },
+            "areaServed": "Orhei, Chișinău",
+            "openingHours": "Mo-Sa 09:00-18:00",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 47.41416,
+              "longitude": 28.97581
+            },
+            "hasMap": "https://www.google.com/maps/dir/?api=1&destination=47.41416,28.97581&travelmode=driving",
+            "employee": {
+              "@type": "Person",
+              "name": "Alexandru",
+              "jobTitle": "Apicultor"
+            }
+          },
+
+          {
+            "@type": "Product",
+            "@id": "https://mieremoldova.md/#prod-poliflora",
+            "name": "Miere de polifloră",
+            "image": "https://mieremoldova.md/assets/mieregeneral.webp",
+            "description": "Miere polifloră crudă, nepasteurizată. Ridicare din gospodărie (Susleni, Orhei).",
+            "brand": { "@type": "Brand", "name": "Stupina Susleni" },
+            "sku": "poliflora",
+            "url": "https://mieremoldova.md/#pret-miere-de-albine",
+            "offers": [
+              {
+                "@type": "Offer",
+                "url": "https://mieremoldova.md/#pret-miere-de-albine",
+                "price": "50",
+                "priceCurrency": "MDL",
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availableDeliveryMethod": "https://schema.org/OnSitePickup",
+                "seller": { "@id": "https://mieremoldova.md/#stupina" },
+                "name": "Miere polifloră 500g"
+              },
+              {
+                "@type": "Offer",
+                "url": "https://mieremoldova.md/#pret-miere-de-albine",
+                "price": "100",
+                "priceCurrency": "MDL",
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availableDeliveryMethod": "https://schema.org/OnSitePickup",
+                "seller": { "@id": "https://mieremoldova.md/#stupina" },
+                "name": "Miere polifloră 1kg"
+              }
+            ]
+          },
+
+          {
+            "@type": "Product",
+            "@id": "https://mieremoldova.md/#prod-rapita",
+            "name": "Miere de rapiță",
+            "image": "https://mieremoldova.md/assets/miere-borcan-rapita.webp",
+            "description": "Miere de rapiță cremoasă natural (cristalizare rapidă). Pickup din Susleni (Orhei).",
+            "brand": { "@type": "Brand", "name": "Stupina Susleni" },
+            "sku": "rapita",
+            "url": "https://mieremoldova.md/#miere-rapita",
+            "offers": [
+              {
+                "@type": "Offer",
+                "url": "https://mieremoldova.md/#pret-miere-de-albine",
+                "price": "50",
+                "priceCurrency": "MDL",
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availableDeliveryMethod": "https://schema.org/OnSitePickup",
+                "seller": { "@id": "https://mieremoldova.md/#stupina" },
+                "name": "Miere de rapiță 500g"
+              },
+              {
+                "@type": "Offer",
+                "url": "https://mieremoldova.md/#pret-miere-de-albine",
+                "price": "100",
+                "priceCurrency": "MDL",
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availableDeliveryMethod": "https://schema.org/OnSitePickup",
+                "seller": { "@id": "https://mieremoldova.md/#stupina" },
+                "name": "Miere de rapiță 1kg"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <!-- FAQPage schema (kept) -->
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "cumpar miere de albine md",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puteți cumpara miere de albine MD direct din Susleni (raionul Orhei), cu ridicare din gospodărie. Verificați prețurile pentru 500g/1kg și scrieți pe WhatsApp pentru programare."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- BlogPosting schema for AI article -->
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": "https://mieremoldova.md/#blog",
+        "headline": "Cum ne promovăm afacerea cu miere folosind AI",
+        "description": "Suntem apicultori simpli din Susleni, nu specialiști în marketing. Am testat ChatGPT, Claude și R-RO.com pentru a scrie postări pe Facebook și mesaje către clienți.",
+        "author": {
+          "@type": "Person",
+          "name": "Alexandru",
+          "jobTitle": "Apicultor"
+        },
+        "publisher": {
+          "@id": "https://mieremoldova.md/#stupina"
+        },
+        "datePublished": "2025-12-17",
+        "dateModified": "2025-12-17",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://mieremoldova.md/#blog"
+        },
+        "inLanguage": "ro"
+      }
+    </script>
+
+    <!-- Small helper so your onClick track() doesn't error (pushes to GTM dataLayer) -->
+    <script is:inline>
+      function track(eventName, params) {
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(
+            Object.assign({ event: eventName }, params || {})
+          );
+        } catch (e) {}
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <a href="/" aria-label="Miere Moldova">🍯 Stupina Susleni</a>
+        </div>
+        <nav class="nav" aria-label="Main">
+          <a href="/despre-noi.html" data-ro="Despre noi" data-ru="&#1054; &#1085;&#1072;&#1089;">Despre noi</a>
+          <a
+            href="/top-10-vanzatori-miere-moldova.html"
+            data-ro="Top 10 v&#226;nz&#259;tori"
+            data-ru="&#1058;&#1086;&#1087; 10 &#1087;&#1088;&#1086;&#1076;&#1072;&#1074;&#1094;&#1086;&#1074;"
+            >Top 10 v&#226;nz&#259;tori</a
+          >
+        </nav>
+        <div class="header-controls">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Schimbă tema"
+            onclick="toggleTheme()"
+            data-ro-title="Schimbă tema"
+            data-ru-title="Сменить тему"
+          >
+            <!-- Moon icon (shown in light mode) -->
+            <svg
+              class="moon-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <!-- Sun icon (shown in dark mode) -->
+            <svg
+              class="sun-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="12"
+                y1="1"
+                x2="12"
+                y2="3"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="12"
+                y1="21"
+                x2="12"
+                y2="23"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="4.22"
+                y1="4.22"
+                x2="5.64"
+                y2="5.64"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="18.36"
+                y1="18.36"
+                x2="19.78"
+                y2="19.78"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="1"
+                y1="12"
+                x2="3"
+                y2="12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="21"
+                y1="12"
+                x2="23"
+                y2="12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="4.22"
+                y1="19.78"
+                x2="5.64"
+                y2="18.36"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="18.36"
+                y1="5.64"
+                x2="19.78"
+                y2="4.22"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <div class="lang">
+            <button onclick="setLang('ro')" aria-label="Română" id="btn-ro">
+              RO
+            </button>
+            <button onclick="setLang('ru')" aria-label="Русский" id="btn-ru">
+              RU
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <h1
+            data-ro="Miere naturală din Susleni (Orhei) – ridicare din gospodărie"
+            data-ru="Натуральный мёд из Суслен — самовывоз с хозяйства"
+          >
+            Miere naturală din Susleni (Orhei) – ridicare din gospodărie
+          </h1>
+          <p
+            class="muted"
+            data-ro="Apicultor local în Susleni, Orhei. Miere de albine crudă (nepasteurizată): salcâm, tei, polifloră, floarea-soarelui și rapiță. Miere Orhei & Miere Chișinău – ridicare rapidă din gospodărie."
+            data-ru="Местный пчеловод. Сырой мёд: акация, липа, полифлора, подсолнечник и рапс. Мёд Оргеев / Мёд Кишинёв — удобный самовывоз."
+          >
+            Apicultor local în Susleni, Orhei. Miere de albine crudă
+            (nepasteurizată): salcâm, tei, polifloră, floarea-soarelui și
+            rapiță. Miere Orhei & Miere Chișinău – ridicare rapidă din
+            gospodărie.
+          </p>
+
+          <!-- Micro-CTA -->
+          <p class="muted" id="cumpar-hero">
+            Căutai <strong>cumpar miere de albine md</strong> sau
+            <strong>miere Susleni</strong>? Suntem în Susleni (Orhei) – ridicare
+            din gospodărie, aproape de Chișinău.
+          </p>
+
+          <div class="cta">
+            <a
+              class="btn"
+              id="waBtn"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              onclick="track('click_whatsapp')"
+              >WhatsApp</a
+            >
+            <a
+              class="btn light"
+              href="tel:+37378415772"
+              onclick="track('click_call')"
+              >📞 +373 78415772</a
+            >
+            <a
+              class="btn light"
+              href="https://www.google.com/maps/dir/?api=1&destination=47.41416,28.97581&travelmode=driving"
+              target="_blank"
+              rel="noopener"
+              onclick="track('click_directions')"
+              >🗺️ Indicații</a
+            >
+          </div>
+          <div style="margin-top: 16px">
+            <span
+              class="badge"
+              data-ro="Direct din gospodărie"
+              data-ru="Самовывоз"
+              >Ridicare din gospodărie</span
+            >
+            <span class="badge" data-ro="Miere crudă" data-ru="Сырой мёд"
+              >Miere crudă</span
+            >
+            <span
+              class="badge"
+              data-ro="Fără adaos de zahăr"
+              data-ru="Без сахара"
+              >Fără adaos de zahăr</span
+            >
+          </div>
+        </div>
+
+        <!-- HERO IMAGE SLIDER -->
+        <div
+          class="hero-media"
+          role="region"
+          aria-label="Galerie imagini miere"
+          tabindex="0"
+        >
+          <button
+            class="arrow left"
+            aria-label="Imagine anterioară"
+            id="heroPrev"
+            type="button"
+            onclick="track('hero_prev')"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M15.5 4.5l-7 7 7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <img
+            id="heroImg"
+            src="/assets/mieregeneral.webp"
+            alt="Miere de albine din Susleni, Orhei — borcan 1kg salcâm, preț și ridicare"
+            data-images='["/assets/mieregeneral.webp","/assets/mierecristal.webp","/assets/miere-galetusa.webp","/assets/miere-borcan-rapita.webp"]'
+            loading="eager"
+            fetchpriority="high"
+          />
+
+          <button
+            class="arrow right"
+            aria-label="Imagine următoare"
+            id="heroNext"
+            type="button"
+            onclick="track('hero_next')"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M8.5 4.5l7 7-7 7"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <div class="hero-count" id="heroCount">1/4</div>
+        </div>
+      </section>
+
+      <section id="pret-miere-de-albine">
+        <h2
+          data-ro="Miere de albine – prețuri (500g / 1kg)"
+          data-ru="Продукты и цены"
+        >
+          Miere de albine – prețuri (500g / 1kg)
+        </h2>
+        <div class="card">
+          <table id="priceTable">
+            <thead>
+              <tr>
+                <th data-ro="Tip" data-ru="Вид">Tip</th>
+                <th>500g</th>
+                <th>1kg</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Polifloră</td>
+                <td>50 lei</td>
+                <td>100 lei</td>
+              </tr>
+              <tr>
+                <td>Rapiță</td>
+                <td>50 lei</td>
+                <td>100 lei</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p
+            class="muted"
+            data-ro="Cauți «miere de albine preț», «miere 1kg Orhei» sau «cumpar miere de albine md»? Scrie-ne pe WhatsApp ce dorești și pregătim borcanele pentru ridicare."
+            data-ru="Ищете «мёд цена» или «мёд 1кг Оргеев»? Напишите в WhatsApp — подготовим банки к самовывозу."
+          >
+            Cauți „miere de albine preț”, „miere 1kg Orhei” sau „<strong
+              >cumpar miere de albine md</strong
+            >”? Scrie-ne pe WhatsApp ce dorești și pregătim borcanele/galetușele
+            pentru ridicare.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card" id="miere-rapita">
+          <h2
+            data-ro="Miere de rapiță – naturală, ridicare din Susleni"
+            data-ru="Рапсовый мёд — самовывоз из Суслен"
+          >
+            Miere de rapiță – naturală, ridicare din Susleni
+          </h2>
+          <p
+            data-ro="Mierea de rapiță cristalizează repede (textură fină, tartinabilă) — semn de miere crudă autentică. Întreabă de «miere de rapiță preț» pentru 500g/1kg (căutată și ca «miere rapita»)."
+            data-ru="Рапсовый мёд быстро кристаллизуется (нежная намазываемая текстура) — признак сырого мёда. Спросите «рапсовый мёд цена» для 500г/1кг."
+          >
+            Mierea de rapiță cristalizează repede (textură fină, tartinabilă) —
+            semn de miere crudă autentică. Întreabă de „miere de rapiță preț”
+            pentru 500g/1kg (căutată și ca „miere rapita”).
+          </p>
+        </div>
+
+        <div class="card" id="miere-chisinau">
+          <h2
+            data-ro="Miere Chișinău – cum ajungi la noi (Susleni, Orhei)"
+            data-ru="Мёд Кишинёв — как добраться до самовывоза (Суслены, Оргеев)"
+          >
+            Miere Chișinău – cum ajungi la noi (Susleni, Orhei)
+          </h2>
+          <p
+            class="muted"
+            data-ro="Ești din Chișinău? Miere de albine  la doar 45–60 min distanță: vii la Susleni (Orhei), iar noi pregătim comanda."
+            data-ru="Вы из Кишинёва? Мёд в Кишинёве — 45–60 мин до Суслен (Оргеев), мы готовим заказ."
+          >
+            Ești din Chișinău? Miere de albine la doar 45–60 min distanță: vii
+            la Susleni (Orhei), iar noi pregătim comanda.
+          </p>
+          <p
+            class="muted"
+            data-ro="Întrebare frecventă: «cumpăr miere de albine MD» (căutată și ca «cumpar miere de albine md»). Răspuns: direct din stupina noastră, cu ridicare din gospodărie."
+            data-ru="Частый запрос: «купить мёд Молдова». Ответ: напрямую у нас, самовывоз."
+          >
+            Întrebare frecventă: „cumpăr miere de albine MD” (căutată și ca
+            „cumpar miere de albine md”). Răspuns: direct din stupina noastră,
+            cu ridicare din gospodărie.
+          </p>
+        </div>
+      </section>
+
+      <!-- About natural honey production -->
+      <section class="card" style="margin-top: 30px">
+        <h2
+          data-ro="Miere naturală din Susleni – proces de producție"
+          data-ru="Натуральный мёд из Суслен – процесс производства"
+        >
+          Miere naturală din Susleni – proces de producție
+        </h2>
+        <p
+          data-ro="Stupina noastră din Susleni oferă miere 100% naturală, fără aditivi sau proceduri industriale care alterează calitatea. Procesul păstrează proprietățile benefice ale mierii naturale."
+          data-ru="Наша пасека в Суслены предлагает 100% натуральный мёд, без добавок или промышленных процедур. Мы сохраняем полезные свойства натурального мёда."
+        >
+          Stupina noastră din Susleni oferă miere 100% naturală, fără aditivi
+          sau proceduri industriale care alterează calitatea. Procesul păstrează
+          proprietățile benefice ale mierii naturale:
+        </p>
+
+        <div class="video-container" style="margin: 25px 0">
+          <video
+            controls
+            autoplay
+            muted
+            loop
+            class="bee-video"
+            poster="/assets/og-preview.webp"
+            loading="lazy"
+          >
+            <source src="/assets/behhive.mp4" type="video/mp4" />
+            Browserul dumneavoastră nu poate reda acest video despre albinele
+            noastre în stup.
+          </video>
+          <p
+            class="video-caption"
+            data-ro="Albinele în acțiune: un fragment din viața cotidiană a stupinei"
+            data-ru="Наши пчелы в действии: фрагмент из повседневной жизни пасеки в Суслены"
+          >
+            Albinele în acțiune: un fragment din viața cotidiană a stupinei
+          </p>
+        </div>
+
+        <ul>
+          <li
+            data-ro="Extracție la rece, fără încălzire artificială"
+            data-ru="Холодная экстракция, без искусственного нагрева"
+          >
+            Extracție la rece, fără încălzire artificială
+          </li>
+          <li
+            data-ro="Filtrare minimală pentru a păstra polen și propolis"
+            data-ru="Минимальная фильтрация для сохранения пыльцы и прополиса"
+          >
+            Filtrare minimală pentru a păstra polen și propolis
+          </li>
+          <li
+            data-ro="Recoltare atentă direct din fagurii naturali"
+            data-ru="Бережный сбор непосредственно из натуральных сот"
+          >
+            Recoltare atentă direct din fagurii naturali
+          </li>
+          <li
+            data-ro="Depozitare optimă pentru păstrarea aromei și consistenței naturale"
+            data-ru="Оптимальное хранение для сохранения аромата и натуральной консистенции"
+          >
+            Depozitare optimă pentru păstrarea aromei și consistenței naturale
+          </li>
+        </ul>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2
+            data-ro="De ce uneori mierea este „tare” (cristalizată)?"
+            data-ru="Почему мёд иногда «твёрдый» (кристаллизованный)?"
+          >
+            De ce uneori mierea este „tare” (cristalizată)?
+          </h2>
+          <p
+            data-ro="Cristalizarea este un proces natural al mierii crude: glucoza formează cristale în timp. Salcâmul rămâne lichid mai mult; floarea-soarelui și rapița cristalizează mai repede. Semn de autenticitate, nu de fals."
+            data-ru="Кристаллизация — естественный процесс сырого мёда: глюкоза со временем образует кристаллы. Акация дольше жидкая; подсолнечник и рапс кристаллизуются быстрее. Это признак натуральности."
+          >
+            Cristalizarea este un proces natural al mierii crude: glucoza
+            formează cristale în timp. Salcâmul rămâne lichid mai mult;
+            floarea-soarelui și rapița cristalizează mai repede. Semn de
+            autenticitate, nu de fals.
+          </p>
+          <p
+            data-ro="Preferi lichidă? Ține borcanul în apă caldă (≈35–40°C) câteva minute. Fără fierbere, fără microunde — păstrăm enzimele și aromele."
+            data-ru="Хотите жидкий? Поставьте банку в тёплую водяную баню (≈35–40°C). Без кипячения и микроволновки."
+          >
+            Preferi lichidă? Ține borcanul în apă caldă (≈35–40°C) câteva
+            minute. Fără fierbere, fără microunde — păstrăm enzimele și aromele.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2
+            data-ro="Cum funcționează ridicarea"
+            data-ru="Как работает самовывоз"
+          >
+            Cum funcționează ridicarea
+          </h2>
+          <ol>
+            <li
+              data-ro="Scrie pe WhatsApp ce vrei (tip, cantitate, zi)."
+              data-ru="Напишите в WhatsApp, что нужно (вид, количество, день)."
+            >
+              Scrie pe WhatsApp ce vrei (tip, cantitate, zi).
+            </li>
+            <li
+              data-ro="Confirmăm stocul și ora."
+              data-ru="Подтверждаем наличие и время."
+            >
+              Confirmăm stocul și ora.
+            </li>
+            <li
+              data-ro="Vii la adresă (Susleni, Orhei) — noi te așteptăm."
+              data-ru="Приезжаете по адресу (Суслен, Оргеев)."
+            >
+              Vii la adresă (Susleni, Orhei) — noi te așteptăm.
+            </li>
+          </ol>
+          <p
+            class="muted"
+            data-ro="Program recomandat: L–S 09:00–18:00 (duminică cu mesaj înainte)."
+            data-ru="График: П–Сб 09:00–18:00 (вс — по договорённости)."
+          >
+            Program recomandat: L–S 09:00–18:00 (duminică cu mesaj înainte).
+          </p>
+          <p
+            data-ro="Ridicare din gospodărie înseamnă contact direct cu apicultorul, fără intermediari. Vei putea vedea cum arată mierea naturală direct din sursa ei din Susleni, Orhei."
+            data-ru="Самовывоз означает прямой контакт с пчеловодом, без посредников. Вы увидите натуральный мёд прямо из источника в Суслены, Оргеев."
+          >
+            Ridicare din gospodărie înseamnă contact direct cu apicultorul, fără
+            intermediari. Vei putea vedea cum arată mierea naturală direct din
+            sursa ei din Susleni, Orhei.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h2 data-ro="Despre noi" data-ru="О нас">Despre noi</h2>
+          <p
+            data-ro="Alexandru, apicultor din Susleni. Lucrăm doar cu miere de albine crudă din stupina proprie. Nu încălzim pentru a o «face clară» — preferăm onestitatea."
+            data-ru="Александр, местный пчеловод из Суслен. Только сырой мёд с нашей пасеки. Не нагреваем ради «прозрачности»."
+          >
+            Alexandru, apicultor din Susleni. Lucrez doar cu miere de albine
+            crudă din stupina proprie. Nu încălzim pentru a o «face clară».
+          </p>
+          <p
+            data-ro="Stupina noastră din Susleni (Orhei) beneficiază de o biodiversitate unică în Moldova. Florile sălbatice oferă albinelor un nectar bogat și variat, rezultând într-o miere naturală de înaltă calitate."
+            data-ru="Наша пасека в Суслены (Оргеев) пользуется уникальным биоразнообразием. Дикие цветы дают богатый нектар — натуральный мёд высокого качества."
+          >
+            Stupina noastră din Susleni (Orhei) beneficiază de o biodiversitate
+            unică în Moldova. Florile sălbatice din această regiune oferă
+            albinelor noastre un nectar bogat și variat, rezultând într-o miere
+            naturală de înaltă calitate.
+          </p>
+          <ul>
+            <li
+              data-ro="Recolte pe loturi, cu date clare."
+              data-ru="Сбор по партиям, с чёткими датами."
+            >
+              Recolte pe loturi, cu date clare.
+            </li>
+            <li
+              data-ro="Stupină în zona Susleni–Orhei."
+              data-ru="Пасека в районе Суслен–Оргеев."
+            >
+              Stupină în zona Susleni–Orhei.
+            </li>
+            <li
+              data-ro="Fotografii reale, autentice."
+              data-ru="Реальные фото, без стоков."
+            >
+              Fotografii reale, autentice.
+            </li>
+            <li
+              data-ro="Miere naturală verificată pentru puritate."
+              data-ru="Натуральный мёд, проверенный на чистоту."
+            >
+              Miere naturală verificată pentru puritate.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 data-ro="Întrebări frecvente" data-ru="Частые вопросы">
+            Întrebări frecvente
+          </h2>
+          <details>
+            <summary
+              data-ro="Este normal să se „zaharisească”?"
+              data-ru="Нормально ли, что мёд засахаривается?"
+            >
+              Este normal?
+            </summary>
+            <p
+              data-ro="Da — e un semn de miere crudă. Ritmul diferă după sortiment: rapița și floarea-soarelui se întăresc mai repede."
+              data-ru="Да — признак сырого мёда. Скорость кристаллизации зависит от сорта."
+            >
+              Da — e un semn...
+            </p>
+          </details>
+          <details>
+            <summary
+              data-ro="Pot să o fac iar lichidă?"
+              data-ru="Как разжижить?"
+            >
+              Cum o fac lichidă?
+            </summary>
+            <p
+              data-ro="Apă caldă 35–40°C, fără microunde și fără fierbere — păstrăm enzimele."
+              data-ru="Тёплая водяная баня 35–40°C, без микроволновки/кипячения."
+            >
+              Apă caldă...
+            </p>
+          </details>
+          <details>
+            <summary
+              data-ro="cumpar miere de albine md"
+              data-ru="Где купить мёд в Молдове?"
+            >
+              cumpar miere de albine md
+            </summary>
+            <p
+              data-ro="Puteți cumpăra direct din Susleni (Orhei) — ridicare din gospodărie. Verificați prețurile și scrieți pe WhatsApp pentru programare."
+              data-ru="Напрямую у нас: Суслены (Оргеев) — самовывоз."
+            >
+              Direct de la noi...
+            </p>
+          </details>
+          <details>
+            <summary
+              data-ro="Unde pot cumpăra miere de albine în MD?"
+              data-ru="Где купить мёд в Молдове?"
+            >
+              Unde pot cumpăra?
+            </summary>
+            <p
+              data-ro="Direct de la noi: Susleni (Orhei) – ridicare din gospodărie. (Căutare populară: «cumpar miere de albine md»)"
+              data-ru="Напрямую у нас: Суслены (Оргеев) — самовывоз."
+            >
+              Direct de la noi...
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="card" style="margin: 30px 0">
+        <h2
+          data-ro="Disponibilitatea mierii naturale după sezon"
+          data-ru="Сезонная доступность натурального меда"
+        >
+          Disponibilitatea mierii naturale după sezon
+        </h2>
+        <p
+          data-ro="Oferta variază după sezon; sortimentele sunt disponibile cu ridicare din gospodărie."
+          data-ru="Предложение варьируется по сезонам; сорта доступны для самовывоза."
+        >
+          Oferta noastră de miere naturală din Susleni variază în funcție de
+          sezon. Fiecare perioadă aduce varietăți distincte, toate disponibile
+          prin ridicare din gospodăria noastră din Orhei:
+        </p>
+        <table style="margin-top: 20px">
+          <thead>
+            <tr>
+              <th>Perioada</th>
+              <th>Tipuri disponibile</th>
+              <th>Caracteristici</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mai - Iunie</td>
+              <td>Salcâm, Rapiță</td>
+              <td>Miere proaspătă, aromă delicată</td>
+            </tr>
+            <tr>
+              <td>Iulie - August</td>
+              <td>Tei, Floarea-soarelui, Polifloră</td>
+              <td>Aromă intensă, bogată în nutrienți</td>
+            </tr>
+            <tr>
+              <td>Septembrie - Aprilie</td>
+              <td>Toate sortimentele (în limita stocului)</td>
+              <td>Miere naturală cristalizată, matură</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card" id="blog" style="margin: 30px 0">
+        <h2
+          data-ro="Cum ne promovăm afacerea cu miere folosind AI"
+          data-ru="Как мы продвигаем наш медовый бизнес с помощью ИИ"
+        >
+          Cum ne promovăm afacerea cu miere folosind AI
+        </h2>
+        <p
+          data-ro="Suntem apicultori simpli, nu specialiști în marketing. De aceea am căutat soluții care să ne ajute să comunicăm mai bine cu clienții."
+          data-ru="Мы простые пчеловоды, а не маркетологи. Поэтому мы искали решения, которые помогут нам лучше общаться с клиентами."
+        >
+          Suntem apicultori simpli din Susleni, nu specialiști în marketing.
+          Toată ziua ne ocupăm de stupi și de albine, nu de reclame pe Facebook
+          sau emailuri către clienți. De aceea am căutat soluții care să ne
+          ajute să comunicăm mai bine cu cei care vor miere naturală din Orhei.
+        </p>
+        <p
+          data-ro="Am testat mai multe instrumente AI pentru a scrie postări și mesaje:"
+          data-ru="Мы протестировали несколько инструментов ИИ для написания постов и сообщений:"
+        >
+          Am testat mai multe instrumente AI pentru a scrie postări pe Facebook
+          și mesaje către clienți:
+        </p>
+        <ol style="margin: 15px 0; padding-left: 20px">
+          <li style="margin-bottom: 10px">
+            <strong
+              ><a
+                href="https://chat.openai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ChatGPT</a
+              ></strong
+            >
+            – cel mai cunoscut, foarte bun pentru texte în română, dar varianta
+            gratuită are limite.
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong
+              ><a
+                href="https://claude.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Claude</a
+              ></strong
+            >
+            – excelent pentru texte mai lungi și naturale, înțelege bine
+            contextul moldovenesc.
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong
+              ><a href="https://r-ro.com" target="_blank" rel="noopener"
+                >R-RO.com</a
+              ></strong
+            >
+            – e făcut mai ales pentru reclamații și acte juridice, dar funcția
+            de chat e surprinzător de bună pentru texte în română. Prețul e mic
+            (7€/lună) și e optimizat special pentru români și moldoveni.
+          </li>
+        </ol>
+        <p
+          data-ro="Acum scriem postări și răspundem la mesaje mult mai repede. Poate vă ajută și pe voi!"
+          data-ru="Теперь мы пишем посты и отвечаем на сообщения намного быстрее. Надеемся, это поможет и вам!"
+        >
+          De când folosim aceste instrumente, scriem postări și răspundem la
+          mesaje mult mai repede. Recomandăm oricărui mic producător să încerce
+          – chiar dacă nu ești expert în tehnologie, e simplu de folosit. Poate
+          vă ajută și pe voi să vă promovați mierea sau alte produse locale!
+        </p>
+      </section>
+
+      <section>
+        <h2 data-ro="Contact & locație" data-ru="Контакты и адрес">
+          Contact & locație
+        </h2>
+        <p>
+          📞
+          <a href="tel:+37378415772" onclick="track('click_call_footer')"
+            >+373 78415772</a
+          >
+          · WhatsApp:
+          <a
+            id="waLink2"
+            href="#"
+            target="_blank"
+            onclick="track('click_whatsapp_footer')"
+            >Deschide</a
+          >
+        </p>
+        <p>
+          <a
+            class="btn light"
+            href="https://www.google.com/maps/dir/?api=1&destination=47.41416,28.97581&travelmode=driving"
+            target="_blank"
+            rel="noopener"
+            onclick="track('click_directions_footer')"
+            >🗺️ Deschide harta</a
+          >
+        </p>
+
+        <div
+          class="muted"
+          data-ro="Ridicare: Susleni, raionul Orhei. Alexandru vă așteaptă cu comanda pregătită."
+          data-ru="Самовывоз: Суслены, Оргеевский район. Александр ждёт с готовым заказом."
+        >
+          Ridicare: Susleni, raionul Orhei. Alexandru vă așteaptă cu comanda
+          pregătită.
+        </div>
+
+        <!-- Embedded Map -->
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps?q=47.41416,28.97581&z=15&output=embed&hl=ro"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Harta – Susleni, Orhei (Stupina Susleni)"
+          >
+          </iframe>
+        </div>
+      </section>
+
+      <footer>
+        <div class="muted">
+          © Stupina Susleni - Alexandru · Miere crudă, nepasteurizată ·
+        </div>
+        <a href="https://moldovawebsite.md">moldovawebsite.md</a>
+      </footer>
+    </div>
+
+    <script is:inline>
+      const phone = "37378415772";
+
+      // Theme toggle functionality
+      function toggleTheme() {
+        const isDark = document.body.classList.toggle("dark-theme");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        track("toggle_theme", { theme: isDark ? "dark" : "light" });
+      }
+
+      function initTheme() {
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (savedTheme === null && prefersDark)) {
+          document.body.classList.add("dark-theme");
+        }
+
+        // Update theme toggle button title based on current language
+        updateThemeButtonTitle();
+      }
+
+      function updateThemeButtonTitle() {
+        const lang = localStorage.getItem("lang") || "ro";
+        const themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+          themeToggle.title = themeToggle.getAttribute(`data-${lang}-title`);
+        }
+      }
+
+      function setLang(lang) {
+        document.querySelectorAll("[data-" + lang + "]").forEach((el) => {
+          el.textContent = el.getAttribute("data-" + lang);
+        });
+        localStorage.setItem("lang", lang);
+        updateWhatsApp(lang);
+        updateThemeButtonTitle();
+
+        // Switch map language
+        const iframe = document.querySelector(".map-embed iframe");
+        if (iframe) {
+          try {
+            const url = new URL(iframe.src);
+            url.searchParams.set("hl", lang === "ru" ? "ru" : "ro");
+            iframe.src = url.toString();
+          } catch (e) {}
+        }
+      }
+
+      function initLang() {
+        const q = new URLSearchParams(location.search).get("lang");
+        const saved = localStorage.getItem("lang");
+        setLang(q || saved || "ro");
+      }
+
+      function updateWhatsApp(lang) {
+        const greet =
+          lang === "ru"
+            ? "Здравствуйте! Хочу забрать мёд из Суслен."
+            : "Salut! Aș dori să ridic miere de la Susleni.";
+        const template = `${greet}%0A- Tip: [Polifloră/Rapiță]%0A- Cantitate: [ex. 1kg]%0A- Zi/Ora: [ex. azi 16:00]`;
+        const url = `https://wa.me/${phone}?text=${template}`;
+        document.getElementById("waBtn").href = url;
+        document.getElementById("waLink2").href = url;
+      }
+
+      // Simple hero slider (arrows, keyboard, swipe)
+      function initHeroSlider() {
+        const img = document.getElementById("heroImg");
+        if (!img) return;
+
+        let images = [];
+        try {
+          images = JSON.parse(img.getAttribute("data-images") || "[]");
+        } catch (e) {}
+        if (!Array.isArray(images) || images.length === 0) images = [img.src];
+
+        let index = 0;
+        const count = document.getElementById("heroCount");
+        const prev = document.getElementById("heroPrev");
+        const next = document.getElementById("heroNext");
+
+        function update() {
+          img.src = images[index];
+          if (count) count.textContent = index + 1 + "/" + images.length;
+        }
+        function go(dir) {
+          index = (index + dir + images.length) % images.length;
+          update();
+          track("hero_slide", { index: index + 1, src: images[index] });
+        }
+
+        prev && prev.addEventListener("click", () => go(-1));
+        next && next.addEventListener("click", () => go(1));
+
+        const region = document.querySelector(".hero-media");
+        if (region) {
+          region.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+              e.preventDefault();
+              go(-1);
+            }
+            if (e.key === "ArrowRight") {
+              e.preventDefault();
+              go(1);
+            }
+          });
+        }
+
+        let startX = null;
+        img.addEventListener(
+          "touchstart",
+          (e) => {
+            startX = e.changedTouches[0].clientX;
+          },
+          { passive: true }
+        );
+        img.addEventListener(
+          "touchend",
+          (e) => {
+            if (startX == null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 30) go(dx < 0 ? 1 : -1);
+            startX = null;
+          },
+          { passive: true }
+        );
+
+        update();
+      }
+
+      initTheme();
+      initLang();
+      initHeroSlider();
+    </script>
+  </body>
 </html>

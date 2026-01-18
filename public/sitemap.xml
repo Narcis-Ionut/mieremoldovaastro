@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage (RO) with language alternates -->
+  <url>
+    <loc>https://mieremoldova.md/</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mieremoldova.md/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mieremoldova.md/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mieremoldova.md/"/>
+  </url>
+
+  <!-- RU variant (query param) with reciprocal alternates -->
+  <url>
+    <loc>https://mieremoldova.md/?lang=ru</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mieremoldova.md/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mieremoldova.md/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mieremoldova.md/"/>
+  </url>
+
+  <!-- Blog: AI pentru promovare afacere -->
+  <url>
+    <loc>https://mieremoldova.md/despre-noi.html</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mieremoldova.md/despre-noi.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mieremoldova.md/despre-noi.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mieremoldova.md/despre-noi.html"/>
+  </url>
+
+  <url>
+    <loc>https://mieremoldova.md/despre-noi.html?lang=ru</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mieremoldova.md/despre-noi.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mieremoldova.md/despre-noi.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mieremoldova.md/despre-noi.html"/>
+  </url>
+
+  <url>
+    <loc>https://mieremoldova.md/top-10-vanzatori-miere-moldova.html</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mieremoldova.md/top-10-vanzatori-miere-moldova.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mieremoldova.md/top-10-vanzatori-miere-moldova.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mieremoldova.md/top-10-vanzatori-miere-moldova.html"/>
+  </url>
+
+  <url>
+    <loc>https://mieremoldova.md/top-10-vanzatori-miere-moldova.html?lang=ru</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://mieremoldova.md/top-10-vanzatori-miere-moldova.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mieremoldova.md/top-10-vanzatori-miere-moldova.html?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mieremoldova.md/top-10-vanzatori-miere-moldova.html"/>
+  </url>
+
+  <url>
+    <loc>https://mieremoldova.md/#blog</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
