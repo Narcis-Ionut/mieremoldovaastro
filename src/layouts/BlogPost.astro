@@ -1,22 +1,131 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, heroImageAlt } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = new URL(heroImage ?? '/assets/mieregeneral.webp', Astro.site).toString();
+const publishedDate = pubDate.toISOString().split('T')[0];
+const modifiedDate = (updatedDate ?? pubDate).toISOString().split('T')[0];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': canonicalUrl,
+	},
+	headline: title,
+	description,
+	image: imageUrl,
+	author: {
+		'@type': 'Person',
+		name: 'Alexandru',
+		jobTitle: 'Apicultor',
+		url: 'https://mieremoldova.md/despre-noi',
+	},
+	publisher: {
+		'@type': 'Organization',
+		name: 'Stupina Susleni',
+		logo: {
+			'@type': 'ImageObject',
+			url: 'https://mieremoldova.md/logo.png',
+		},
+	},
+	datePublished: publishedDate,
+	dateModified: modifiedDate,
+};
 ---
 
-<html lang="en">
+<html lang="ro">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage ?? '/assets/mieregeneral.webp'} />
+		<script type="application/ld+json">{JSON.stringify(schema)}</script>
 		<style>
+			:root {
+				--max: 980px;
+				--pad: 20px;
+				--primary: #e67e00;
+				--primary-light: #fff2d9;
+				--primary-dark: #b45309;
+				--text: #1f2937;
+				--text-muted: #6b7280;
+				--bg-light: #faf7f2;
+				--bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e6e0d4' fill-opacity='0.3' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0v5L5 20H0zm40 0L20 20v-5l15-15h5z'/%3E%3C/g%3E%3C/svg%3E");
+				--border: #e5d6c0;
+				--radius: 12px;
+				--shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+				--font-heading: "Georgia", serif;
+			}
+			body {
+				margin: 0;
+				font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+				color: var(--text);
+				background: var(--bg-light) var(--bg-pattern);
+				line-height: 1.7;
+				font-size: 18px;
+			}
+			a {
+				color: var(--primary);
+				text-decoration: none;
+				font-weight: 600;
+			}
+			a:hover {
+				color: var(--primary-dark);
+				text-decoration: underline;
+			}
+			.wrap {
+				max-width: var(--max);
+				margin: 0 auto;
+				padding: var(--pad);
+				background: rgba(255, 255, 255, 0.95);
+				box-shadow: var(--shadow);
+			}
+			.site-header {
+				display: flex;
+				gap: 12px;
+				align-items: center;
+				justify-content: space-between;
+				padding: 20px 0;
+				border-bottom: 3px solid var(--primary);
+				margin-bottom: 16px;
+				flex-wrap: wrap;
+			}
+			.brand {
+				font-weight: 800;
+				font-size: 1.4rem;
+				color: var(--primary);
+				font-family: var(--font-heading);
+				letter-spacing: 0.4px;
+			}
+			.brand a {
+				color: inherit;
+				text-decoration: none;
+			}
+			.nav {
+				display: flex;
+				gap: 12px;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+			.nav a {
+				padding: 6px 10px;
+				border-radius: 8px;
+				border: 1px solid transparent;
+				color: var(--text);
+				font-weight: 600;
+			}
+			.nav a:hover {
+				border-color: var(--primary);
+				background: var(--primary-light);
+				text-decoration: none;
+			}
 			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
+				width: 100%;
 				margin: 0;
 			}
 			.hero-image {
@@ -25,15 +134,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
+				border-radius: var(--radius);
+				box-shadow: var(--shadow);
 			}
 			.prose {
 				width: 720px;
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
-				color: rgb(var(--gray-dark));
+				color: var(--text);
 			}
 			.title {
 				margin-bottom: 1em;
@@ -43,43 +152,71 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
+				font-family: var(--font-heading);
+				color: var(--primary-dark);
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
+				color: var(--text-muted);
 			}
 			.last-updated-on {
 				font-style: italic;
+				color: var(--text-muted);
+			}
+			.site-footer {
+				margin: 60px 0 20px;
+				color: var(--text-muted);
+				font-size: 0.95rem;
+				text-align: center;
+				padding-top: 20px;
+				border-top: 1px solid var(--border);
 			}
 		</style>
 	</head>
 
 	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+		<div class="wrap">
+			<header class="site-header">
+				<div class="brand">
+					<a href="/" aria-label="Miere Moldova">Stupina Susleni</a>
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+				<nav class="nav" aria-label="Main">
+					<a href="/miere-naturala/">Miere naturala</a>
+					<a href="/#pret-miere-de-albine">Preturi</a>
+					<a href="/top-10-vanzatori-miere-moldova">Top 10 vanzatori</a>
+					<a href="/despre-noi">Despre noi</a>
+				</nav>
+			</header>
+			<main>
+				<article>
+					<div class="hero-image">
+						{heroImage && (
+							<img width={1020} height={510} src={heroImage} alt={heroImageAlt ?? ''} />
+						)}
 					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
+					<div class="prose">
+						<div class="title">
+							<div class="date">
+								<FormattedDate date={pubDate} />
+								{
+									updatedDate && (
+										<div class="last-updated-on">
+											Actualizat pe <FormattedDate date={updatedDate} />
+										</div>
+									)
+								}
+							</div>
+							<h1>{title}</h1>
+							<hr />
+						</div>
+						<slot />
+					</div>
+				</article>
+			</main>
+			<footer class="site-footer">
+				<p>Stupina Susleni - Alexandru - Miere cruda, nepasteurizata</p>
+				<a href="https://moldovawebsite.md">moldovawebsite.md</a>
+			</footer>
+		</div>
 	</body>
 </html>
