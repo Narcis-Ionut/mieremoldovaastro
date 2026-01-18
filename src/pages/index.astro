@@ -895,6 +895,7 @@
         </div>
         <nav class="nav" aria-label="Main">
           <a href="/despre-noi" data-ro="Despre noi" data-ru="&#1054; &#1085;&#1072;&#1089;">Despre noi</a>
+          <a href="/blog" data-ro="Blog" data-ru="&#1041;&#1083;&#1086;&#1075;">Blog</a>
           <a
             href="/top-10-vanzatori-miere-moldova"
             data-ro="Top 10 v&#226;nz&#259;tori"
@@ -1670,7 +1671,7 @@
         <div class="muted">
           © Stupina Susleni - Alexandru · Miere crudă, nepasteurizată ·
         </div>
-        <a href="https://moldovawebsite.md">moldovawebsite.md</a>
+        <a href="/blog" data-ro="Blog" data-ru="&#1041;&#1083;&#1086;&#1075;">Blog</a> | <a href="https://moldovawebsite.md">moldovawebsite.md</a>
       </footer>
     </div>
 
@@ -1709,7 +1710,10 @@
 
       function setLang(lang) {
         document.querySelectorAll("[data-" + lang + "]").forEach((el) => {
-          el.textContent = el.getAttribute("data-" + lang);
+          const value = el.getAttribute("data-" + lang);
+          if (value !== null && value !== "undefined") {
+            el.textContent = value;
+          }
         });
         localStorage.setItem("lang", lang);
         updateWhatsApp(lang);
@@ -1814,3 +1818,5 @@
     </script>
   </body>
 </html>
+
+

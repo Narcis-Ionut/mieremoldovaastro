@@ -854,6 +854,7 @@
         </div>
         <nav class="nav" aria-label="Main">
           <a href="/despre-noi" data-ro="Despre noi" data-ru="О нас">Despre noi</a>
+          <a href="/blog" data-ro="Blog" data-ru="&#1041;&#1083;&#1086;&#1075;">Blog</a>
           <a
             href="/top-10-vanzatori-miere-moldova"
             data-ro="Top 10 vânzători"
@@ -1211,7 +1212,7 @@
 
       <footer>
         <div class="muted">🍯 Stupina Susleni - Alexandru · Miere crudă</div>
-        <a href="https://moldovawebsite.md">moldovawebsite.md</a>
+        <a href="/blog" data-ro="Blog" data-ru="&#1041;&#1083;&#1086;&#1075;">Blog</a> | <a href="https://moldovawebsite.md">moldovawebsite.md</a>
       </footer>
     </div>
 
@@ -1250,7 +1251,10 @@
 
       function setLang(lang) {
         document.querySelectorAll("[data-" + lang + "]").forEach((el) => {
-          el.textContent = el.getAttribute("data-" + lang);
+          const value = el.getAttribute("data-" + lang);
+          if (value !== null && value !== "undefined") {
+            el.textContent = value;
+          }
         });
         document.documentElement.lang = lang === "ru" ? "ru" : "ro";
         localStorage.setItem("lang", lang);
@@ -1348,3 +1352,6 @@
     </script>
   </body>
 </html>
+
+
+
