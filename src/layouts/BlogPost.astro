@@ -44,7 +44,7 @@ const schema = {
 <html lang="ro">
 	<head>
 		<BaseHead title={title} description={description} image={heroImage ?? '/assets/mieregeneral.webp'} />
-		<script type="application/ld+json">{JSON.stringify(schema)}</script>
+		<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
 		<style>
 			:root {
 				--max: 980px;
